@@ -149,7 +149,7 @@ function showPage(route,scroll=false){const previous=activePage;activePage=route
  Object.entries(map).forEach(([id,page])=>{$(id).hidden=page!==route;});const layout=document.querySelector('.layout'),left=layout.firstElementChild,aside=layout.querySelector('aside');left.hidden=![...left.children].some(e=>!e.hidden);aside.hidden=![...aside.children].some(e=>!e.hidden);layout.classList.toggle('studio-layout',route==='studio');layout.classList.toggle('page-layout',route!=='studio');document.querySelector('.hero').hidden=route!=='studio';
  if(route!=='studio'&&running)stop();if(previous==='review'&&route!=='review')reviewAudio?.pause();updateNavigation();if(scroll)window.scrollTo({top:0,behavior:'instant'});
 }
-function goPage(route,keepFocus=false){if(!keepFocus){document.body.classList.remove('focus-mode');focusExit.style.display='none';}if(location.hash==='#'+route)showPage(route,true);else location.hash=route;}
+function goPage(route,keepFocus=false){if(!keepFocus){document.body.classList.remove('focus-mode');focusExit.style.display='none';}if(location.hash!=='#'+route)location.hash=route;showPage(route,true);}
 window.addEventListener('hashchange',()=>showPage(routeFromHash(),true));
 function makePager(page,count,change){const row=el('div',undefined,'pager'),prev=btn(H('← 上一页','← Previous'),()=>change(page-1)),next=btn(H('下一页 →','Next →'),()=>change(page+1));prev.disabled=page===0;next.disabled=page>=count-1;row.append(prev,el('span',(page+1)+' / '+count),next);return row;}
 let classicPage=0,patternPage=0,musicPage=0;
