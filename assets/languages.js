@@ -1,4 +1,4 @@
-/* Local core UI translations. Detailed teaching falls back to English.
+/* Local UI and detailed teaching translations.
    Twelve major languages; no external translation service. */
 (() => {
 const keys = ['Practice','Learn','Listening','Training','Create','Audio','Progress','Tools','Rhythm & pads','Basic sounds','Classic routines','Pattern library','Exercise','Reset','Random pattern','▶ Start practice','■ Stop practice','Metronome','Subdivision','Quarter notes','Eighth notes','Triplets','Sixteenth notes','Master volume','Off','Save','Load','Download','Custom','▶ Watch original tutorial','▶ Hear real sound','Practice this sound · 60 BPM','↶ Undo','↷ Redo','Focus view','Slow drill · 60 BPM','All','Beginner','Intermediate','▶ Open performance ↗','Favorite','Watched','Next','Previous','● Start recording','■ Stop recording','Tap tempo','Unlimited','Minutes','Language'];
@@ -34,14 +34,19 @@ id:'Tantangan pendengaran|Jalur belajar 28 hari|Glosarium dan kuis|Penampilan|Re
 for(const [code,row]of Object.entries(extraRows)){const values=row.split('|');if(values.length!==extraKeys.length)throw Error('Invalid extra locale '+code);extraKeys.forEach((key,i)=>dictionaries[code][key]=values[i]);}
 const aliases={'01 / Rhythm studio':'Rhythm & pads','02 / Pads & timing feedback':'Rhythm & pads','03 / Record & review':'Audio','04 / Classic routines · Watch, break down, learn':'Classic routines','05 / Pattern library':'Pattern library','Cancel sample loading':'Cancel load'};
 for(const dict of Object.values(dictionaries))for(const [key,value]of Object.entries(aliases))if(dict[value])dict[key]=key.match(/^\d\d \/ /)?key.slice(0,5)+dict[value]:dict[value];
+for(const [code,dict]of Object.entries(window.beatboxTeachingLocales||{}))if(dictionaries[code])Object.assign(dictionaries[code],dict);
+const sectionAliases={'06 / Beatbox listening room':'Listening','07 / A 28-day learning path':'28-day path','08 / Daily plan & focus timer':'Daily plan & timer','09 / Pattern creation bench':'Create & share','10 / Basic sound ear challenge':'Ear challenge','11 / Journal & progress':'Journal & skills','12 / Glossary & knowledge check':'Glossary & quiz','13 / Backups & practice tools':'Backup & resources','14 / Waveform review & A–B looping':'Local audio review','Correct':'Correct.'};
+for(const dict of Object.values(dictionaries))for(const [source,key]of Object.entries(sectionAliases))if(dict[key])dict[source]=source.match(/^\d\d \/ /)?source.slice(0,5)+dict[key]:source==='Correct'?dict[key].replace(/[.。]$/,''):dict[key];
 const nativeNames={zh:'简体中文',en:'English',ja:'日本語',ko:'한국어',fr:'Français',de:'Deutsch',es:'Español',pt:'Português',ru:'Русский',ar:'العربية',hi:'हिन्दी',id:'Bahasa Indonesia'};
 let locale=lang;try{const stored=localStorage.getItem('beatbox-language');if(stored in nativeNames)locale=stored;}catch(e){}
 const panel=document.createElement('dialog');panel.id='languageDialog';panel.className='language-dialog';panel.setAttribute('aria-labelledby','languageTitle');
-panel.innerHTML='<div class="row"><h2 id="languageTitle">🌐 语言 / Languages</h2><button type="button" id="closeLanguages" aria-label="关闭 / Close">✕</button></div><label for="localLanguage">界面语言 / Interface language</label><select id="localLanguage"></select><p class="note">自动记住选择 · 12 种主要语言<br>Your selection is saved · 12 major languages</p><p class="note">中文和英文包含完整教学。其他语言提供常用导航和练习按钮翻译；其余文字暂用英文。<br>Chinese and English include full lessons. Other languages translate core navigation and practice controls; remaining text uses English.</p>';
+panel.innerHTML='<div class="row"><h2 id="languageTitle">🌐 语言 / Languages</h2><button type="button" id="closeLanguages" aria-label="关闭 / Close">✕</button></div><label for="localLanguage">界面与教学语言 / Interface & lesson language</label><select id="localLanguage"></select><p class="note">自动记住选择 · 12 种主要语言<br>Your selection is saved · 12 major languages</p><p class="note">基础音、经典段子、学习路线、知识自测与听赏提示均随语言切换。教学视频保留原语言。<br>Sound lessons, routines, learning paths, quizzes and listening prompts follow your selection. Videos keep their original language.</p>';
 document.body.append(panel);
 const localSelect=document.getElementById('localLanguage');Object.entries(nativeNames).forEach(([code,label])=>localSelect.add(new Option(label,code)));
 const textRecords=new Map(),attributeRecords=new Map();let scheduled=false;
-function translated(source){const dict=dictionaries[locale];if(!dict)return source;const trimmed=source.trim();let result=dict[trimmed];if(!result){const match=trimmed.match(/^([★☆✓○↩]\s*)(.*)$/);if(match&&dict[match[2]])result=match[1]+dict[match[2]];}return result?source.replace(trimmed,result):source;}
+const phraseMatchers=Object.fromEntries(Object.entries(dictionaries).map(([code,dict])=>[code,new RegExp('(?<![A-Za-z])(?:'+Object.keys(dict).filter(key=>key.length>2&&dict[key]!==key).sort((a,b)=>b.length-a.length).map(key=>key.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![A-Za-z])','g')]));
+function translated(source){if(typeof source!=='string')return source;const dict=dictionaries[locale];if(!dict)return source;const trimmed=source.trim();if(dict[trimmed])return source.replace(trimmed,dict[trimmed]);return source.replace(phraseMatchers[locale],match=>dict[match]);}
+window.beatboxTranslate=translated;
 function applyTranslations(){scheduled=false;observer.disconnect();
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
  while(node=walker.nextNode()){
@@ -65,7 +70,5 @@ localSelect.onchange=()=>chooseLanguage(localSelect.value);
 $('lang').onclick=()=>{localSelect.value=locale;panel.showModal();};
 document.getElementById('closeLanguages').onclick=()=>panel.close();
 panel.addEventListener('click',e=>{if(e.target===panel){const r=panel.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)panel.close();}});
-const coverage=document.createElement('p');coverage.id='languageCoverage';coverage.className='note language-coverage';coverage.textContent='Core interface translated · Remaining text and detailed lessons in English';coverage.setAttribute('translate','no');document.querySelector('header').after(coverage);
-const previousApply=applyTranslations;applyTranslations=function(){previousApply();coverage.hidden=locale==='zh'||locale==='en';};
 chooseLanguage(locale);
 })();
