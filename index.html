@@ -192,4 +192,4 @@ const enhancedPage=showPage;showPage=function(route,scroll=false){enhancedPage(r
 document.addEventListener('keydown',e=>{if(e.repeat||/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)||e.target.isContentEditable)return;if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();historyMove(e.shiftKey?'redo':'undo');}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='y'){e.preventDefault();historyMove('redo');}});
 setupPracticeControls();localise();
 
-</script><script src="assets/languages.js?v=1"></script></html>
+</script><script src="assets/languages.js?v=2"></script></html>
