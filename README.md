@@ -38,3 +38,7 @@ Space toggles playback; B/T/P/K/O trigger sounds outside form controls. Hidden t
 Run `python3 -m http.server 8000` in this directory, then open http://localhost:8000 . Recording requires HTTPS or localhost.
 
 GitHub Pages deploys the main branch root. Edit index.html to update the site.
+
+## Human sample foundation pack
+
+Default demo uses five CC0 ipaghost recordings for B/T/PF; K/O remain synthesized and are clearly labelled. Audio uses public HQ MP3 previews, not original WAV downloads. Source-specific credits are in assets/CREDITS.md. B and T each alternate two samples. Real-mode ear challenges use B/T/PF only. WAV export uses the selected pack. The synthetic comparison pack remains selectable.
