@@ -36,3 +36,13 @@ Timing feedback measures keyboard/click offsets, not microphone audio or pattern
 Run `python3 -m http.server 8000` in this directory, then open http://localhost:8000 . Recording requires HTTPS or localhost.
 
 GitHub Pages deploys the main branch root. Edit index.html to update the site.
+
+## Classic routines / 经典段子教学
+
+Eight bilingual lesson cards: Boots and Cats, BTK, Wind, Put Your Hands Up, Roxorloops, Skiller breathing, Make It Bun Dem, and Alem snare/humming.
+
+Each card includes a linked original tutorial, learning focus, three practice steps and companion drum drills at skeleton, slow and suggested tempos. Filter by difficulty or video language.
+
+Companion drills are original simplified practice arrangements for this website, not verified note-for-note transcriptions of the routines. Full routines and special sounds must be learned from the linked teacher. Video titles and links were checked through web search on 2026-10-10; some pages restrict automated retrieval, so actual playback may depend on region, login and platform availability.
+
+Sources: Kenny Urban / Lessonface; Binibining Beats / YouTube; Qualia and beatboxer小脑 / Bilibili. Videos open externally and are not downloaded or rehosted.
