@@ -1,33 +1,38 @@
-# 口袋节奏 / Beatbox Practice
+# Pocket Rhythm / 口袋节奏
 
-中文 Beatbox 练习网页，纯静态 HTML / CSS / JavaScript，无依赖、无需构建。
+A bilingual, browser-local Beatbox practice studio. Built with plain HTML/CSS/JavaScript; no dependencies or build step.
 
-## 功能
-- 40–180 BPM 节拍器与点击测速
-- 四组练习节奏、8 / 16 格音序器、点击修改节奏
-- B / T / PF 合成鼓声示范与键盘打击垫
-- 基础音发声提示与练习路线
-- 麦克风录音、回听与下载（最长 5 分钟）
-- 本机保存设置和累计播放时间，响应式手机布局
+**Live:** https://paoshou-china.github.io/beatbox-practice/
 
-## GitHub Pages
-1. 创建公开仓库 `beatbox-practice`。
-2. 上传本目录内文件，让 `index.html` 位于仓库根目录。
-3. 在仓库 Settings → Pages 中，选择 Deploy from a branch。
-4. 选择 main 分支和 / (root)，保存。
-5. 发布完成后，以 Pages 显示的 URL 为准。若用户名为 PaoShou-China，项目默认地址为 https://paoshou-china.github.io/beatbox-practice/ 。
+## 中文
 
-## 本地运行
-直接打开 index.html 可以练习；录音请使用 HTTPS 网站或 localhost。
-可以在本目录运行 `python3 -m http.server 8000`，访问 http://localhost:8000 。
+右上角切换中文 / English。支持：
+- 12 组节奏预设、随机节奏、逐格编辑
+- 40–200 BPM、点击测速、总音量
+- 四分 / 八分 / 三连 / 十六分细分，八分摇摆比例
+- 预备拍、静音挑战、渐进加速、目标 BPM 上限
+- 1 / 2 / 5 / 10 分钟限时训练
+- B / T / PF / K / O 五种合成鼓声与基础音学习卡
+- 打击垫 / 键盘时机偏差与平均绝对偏差
+- 命名保存节奏、载入、删除、JSON 导入导出（最多 50 组）
+- 最多 5 段临时录音、慢速 / 加速回听、下载
+- 累计练习时间和近 7 天练习图
 
-## 使用
-空格：播放 / 停止；B / T / P：底鼓 / 闭合镲 / 小鼓。
-点击节奏格循环切换休止、B、T、PF。更换预设会停止播放。
-示范为合成打击乐，不是真人口技录音，也不提供自动音色评分。
-推荐录音时戴耳机。录音不会上传，刷新前请下载想保留的练习。
-浏览器切到后台时暂停节拍播放，录音需手动停止，或到 5 分钟自动停止。
-累计练习时间按节奏播放时间统计。
+键盘：空格启停；B / T / P / K / O 触发鼓声。焦点位于输入控件或按钮时快捷键不接管。
 
-## 验证范围
-已检查 JavaScript 语法；实际浏览器音频与麦克风权限需在部署后确认。
+示范音是合成打击乐，不是真人口技。跟拍反馈测量按键 / 点击时机，不分析麦克风音色或指定音符匹配，设备延迟会影响偏差。
+录音不会上传；最多每段 5 分钟，刷新页面前请下载。设置、命名节奏与练习统计保存在本机浏览器。
+限时训练从按下开始计时，包含预备拍。切到后台暂停练习，录音需手动停止或等 5 分钟自动停止。
+
+## English
+
+Use the top-right language switch. Features include 12 presets, editable and random patterns, 40–200 BPM, tap tempo, quarter/eighth/triplet/sixteenth grids, eighth-note swing, count-in, silent-bar challenges, progressive tempo with a ceiling, timed sessions, five drum pads, sound learning cards, pad timing feedback, named patterns, JSON import/export, temporary recordings, playback speed, downloads, and a seven-day practice chart.
+
+Space toggles playback; B/T/P/K/O trigger drum sounds unless a form control is focused.
+Timing feedback measures keyboard/click offsets, not microphone audio or pattern accuracy. Synthesized drums are rhythm references. Audio is never uploaded. Download recordings before refreshing.
+
+## Develop / 本地运行
+
+Run `python3 -m http.server 8000` in this directory, then open http://localhost:8000 . Recording requires HTTPS or localhost.
+
+GitHub Pages deploys the main branch root. Edit index.html to update the site.
