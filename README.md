@@ -6,7 +6,8 @@ A bilingual, browser-local Beatbox practice and listening studio. Plain HTML/CSS
 
 ## 功能 / Features
 
-- 中文 / English; responsive module navigation, focus practice mode.
+- 中文 / English; responsive grouped page navigation, browser history / direct hash links, focus practice mode.
+- Paginated listening (6 cards), classic tutorials (4 cards) and pattern library (12 presets).
 - 32 editable rhythm presets; five synthesized drums B/T/PF/K/O.
 - 40–200 BPM, tap tempo, quarter/eighth/triplet/sixteenth grids, eighth-note swing.
 - Count-in, silent-bar challenges, gradual tempo ramp, timed sessions.
