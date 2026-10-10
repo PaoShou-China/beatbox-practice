@@ -42,3 +42,12 @@ GitHub Pages deploys the main branch root. Edit index.html to update the site.
 ## Human sample foundation pack
 
 Default demo uses ten real recordings: B/T by ipaghost (CC0-1.0, public HQ MP3 previews), explicitly labelled PF/outward K demonstrations by Spencer X (CC BY 3.0), and annotated open hi-hats by Pepouni from Beatboxset1 (CC BY-SA 3.0). Every sound alternates two samples. No synthesized fallback is used in human mode: missing or failed audio is reported as an error. Pads, sequencer, five-choice ear challenges and WAV export share the selected pack. Exported human WAVs carry source and license credits in a RIFF INFO comment; adapted audio containing O must be shared under CC BY-SA 3.0 with attribution. Source links, exact excerpt times, processing and licensing are in assets/CREDITS.md. Synthetic comparison remains available.
+
+## Practice usability update
+
+- Compact, collapsible practice settings and a persistent studio transport with start/stop and ±5 BPM controls.
+- Mobile navigation scrolls in a single row; note grids use four columns on small screens. Touch pads trigger on pointer-down and show immediate pressed feedback.
+- Undo/redo for pattern edits and transformations (up to 50 steps; Ctrl/Cmd+Z, Shift+Z or Ctrl/Cmd+Y outside text fields).
+- Basic lessons include real-sample previews and one-click 60 BPM isolated drills, with count-in enabled.
+- Live audio sources are canceled on stop, and canceled sample loading cannot later start the sequencer.
+- Human WAV exports are peak-balanced when needed to avoid hard PCM clipping; license metadata stays embedded.
