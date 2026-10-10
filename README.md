@@ -1,48 +1,39 @@
-# Pocket Rhythm / 口袋节奏
+# Pocket Rhythm / 口袋节奏 · V3
 
-A bilingual, browser-local Beatbox practice studio. Built with plain HTML/CSS/JavaScript; no dependencies or build step.
+A bilingual, browser-local Beatbox practice and listening studio. Plain HTML/CSS/JavaScript; no dependencies or build step.
 
 **Live:** https://paoshou-china.github.io/beatbox-practice/
 
-## 中文
+## 功能 / Features
 
-右上角切换中文 / English。支持：
-- 12 组节奏预设、随机节奏、逐格编辑
-- 40–200 BPM、点击测速、总音量
-- 四分 / 八分 / 三连 / 十六分细分，八分摇摆比例
-- 预备拍、静音挑战、渐进加速、目标 BPM 上限
-- 1 / 2 / 5 / 10 分钟限时训练
-- B / T / PF / K / O 五种合成鼓声与基础音学习卡
-- 打击垫 / 键盘时机偏差与平均绝对偏差
-- 命名保存节奏、载入、删除、JSON 导入导出（最多 50 组）
-- 最多 5 段临时录音、慢速 / 加速回听、下载
-- 累计练习时间和近 7 天练习图
+- 中文 / English; responsive module navigation, focus practice mode.
+- 32 editable rhythm presets; five synthesized drums B/T/PF/K/O.
+- 40–200 BPM, tap tempo, quarter/eighth/triplet/sixteenth grids, eighth-note swing.
+- Count-in, silent-bar challenges, gradual tempo ramp, timed sessions.
+- Keyboard/pad timing feedback, playback statistics and seven-day chart.
+- Named patterns, JSON import/export, text notation input, rotate/reverse/snare swap/skeleton tools.
+- Pattern share URLs, text-score download and four-loop synthesized drum WAV export.
+- Eight classic tutorial cards with original video links and staged companion drills.
+- 13 listening cards: solo, battle, loopstation, crew and song; filters, search, random recommendation, favorites, watched status and notes.
+- 28-day self-paced learning path, generated daily plans, independent focus timer.
+- Synthesized drum identification challenge; 18 glossary terms and six knowledge cards.
+- Journal, daily playback goal, six subjective skill ratings.
+- Local audio waveform, A–B loops, playback speed and WAV segment export (10-minute/50 MB limit).
+- Full JSON backup/restore of browser-local data (excluding recordings).
+- Up to five temporary microphone recordings, five-minute limit, playback speed and download.
 
-键盘：空格启停；B / T / P / K / O 触发鼓声。焦点位于输入控件或按钮时快捷键不接管。
+## Notes / 说明
 
-示范音是合成打击乐，不是真人口技。跟拍反馈测量按键 / 点击时机，不分析麦克风音色或指定音符匹配，设备延迟会影响偏差。
-录音不会上传；最多每段 5 分钟，刷新页面前请下载。设置、命名节奏与练习统计保存在本机浏览器。
-限时训练从按下开始计时，包含预备拍。切到后台暂停练习，录音需手动停止或等 5 分钟自动停止。
+示范为合成鼓声，不是真人口技。经典配套谱是原创简化预备练习，不是逐音转录；完整段子以原视频为准。鉴赏提示是本站的观察建议，不是原作者的作品解读。外部视频可能受平台或地区限制。
 
-## English
+Timing feedback measures keyboard/click timing, not microphone sound accuracy. Device latency affects results. Ear challenges teach the synthesized sounds only. Skill ratings and learning checkboxes are self-reported.
 
-Use the top-right language switch. Features include 12 presets, editable and random patterns, 40–200 BPM, tap tempo, quarter/eighth/triplet/sixteenth grids, eighth-note swing, count-in, silent-bar challenges, progressive tempo with a ceiling, timed sessions, five drum pads, sound learning cards, pad timing feedback, named patterns, JSON import/export, temporary recordings, playback speed, downloads, and a seven-day practice chart.
+Data stays in this browser. Download recordings before refreshing and export backups regularly. Restore replaces local data after confirmation. Shared URLs include the current pattern only. WAV exports contain synthesized drums, not recorded voices. Focus timer time is separate from studio playback statistics.
 
-Space toggles playback; B/T/P/K/O trigger drum sounds unless a form control is focused.
-Timing feedback measures keyboard/click offsets, not microphone audio or pattern accuracy. Synthesized drums are rhythm references. Audio is never uploaded. Download recordings before refreshing.
+Space toggles playback; B/T/P/K/O trigger sounds outside form controls. Hidden tabs pause the studio; the independent focus timer follows wall-clock time.
 
 ## Develop / 本地运行
 
 Run `python3 -m http.server 8000` in this directory, then open http://localhost:8000 . Recording requires HTTPS or localhost.
 
 GitHub Pages deploys the main branch root. Edit index.html to update the site.
-
-## Classic routines / 经典段子教学
-
-Eight bilingual lesson cards: Boots and Cats, BTK, Wind, Put Your Hands Up, Roxorloops, Skiller breathing, Make It Bun Dem, and Alem snare/humming.
-
-Each card includes a linked original tutorial, learning focus, three practice steps and companion drum drills at skeleton, slow and suggested tempos. Filter by difficulty or video language.
-
-Companion drills are original simplified practice arrangements for this website, not verified note-for-note transcriptions of the routines. Full routines and special sounds must be learned from the linked teacher. Video titles and links were checked through web search on 2026-10-10; some pages restrict automated retrieval, so actual playback may depend on region, login and platform availability.
-
-Sources: Kenny Urban / Lessonface; Binibining Beats / YouTube; Qualia and beatboxer小脑 / Bilibili. Videos open externally and are not downloaded or rehosted.
